@@ -4,15 +4,7 @@ const lugares = [
     nombre: "Pozo 1",
     lat: 19.317364,
     lng: -98.848323,
-    info: ""Ampliación Zoquiapan, 
-jimenez cantu, 
-depositos, cañada,
- hospitales , 
-venado
-,el gato, 
-cañada,
- teponaztle, 
-hornos zoquiapan""
+    info: "Ampliación Zoquiapan>hornos zoquiapan"
   },
   {
     nombre: "Pozo 2",
