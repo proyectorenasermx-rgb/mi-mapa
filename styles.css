@@ -1,4 +1,6 @@
-/* Reset básico para que el mapa tome toda la página */
+/* ===========================
+   BASE GLOBAL
+   =========================== */
 html, body {
   margin: 0;
   padding: 0;
@@ -6,15 +8,24 @@ html, body {
   font-family: Arial, sans-serif;
 }
 
-/* Lista lateral */
+/* ===========================
+   LAYOUT RESPONSIVO
+   =========================== */
+body {
+  display: flex;
+  flex-direction: row; /* Lado a lado en pantalla grande */
+}
+
+/* ===========================
+   LISTA LATERAL
+   =========================== */
 #lista {
   width: 30%;
   padding: 10px;
   border-right: 1px solid #ccc;
-  float: left;
-  height: 100vh;
-  overflow-y: auto;
   list-style: none;
+  overflow-y: auto;
+  height: 100vh;
 }
 
 #lista li {
@@ -27,9 +38,27 @@ html, body {
   background-color: #f0f0f0;
 }
 
-/* Mapa */
+/* ===========================
+   MAPA
+   =========================== */
 #map {
   width: 70%;
   height: 100vh;
-  float: left;
+}
+
+/* ===========================
+   MEDIA QUERIES (MÓVIL)
+   =========================== */
+@media (max-width: 768px) {
+  body {
+    flex-direction: column; /* En móvil apila vertical */
+  }
+
+  #lista, #map {
+    width: 100%;
+  }
+
+  #map {
+    height: 300px; /* Altura útil para mapa en móvil */
+  }
 }
