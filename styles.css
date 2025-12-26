@@ -1,0 +1,35 @@
+/* Reset básico para que el mapa tome toda la página */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
+
+/* Lista lateral */
+#lista {
+  width: 30%;
+  padding: 10px;
+  border-right: 1px solid #ccc;
+  float: left;
+  height: 100vh;
+  overflow-y: auto;
+  list-style: none;
+}
+
+#lista li {
+  cursor: pointer;
+  padding: 8px;
+  border-bottom: 1px solid #eee;
+}
+
+#lista li:hover {
+  background-color: #f0f0f0;
+}
+
+/* Mapa */
+#map {
+  width: 70%;
+  height: 100vh;
+  float: left;
+}
