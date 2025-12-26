@@ -28,22 +28,15 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '© OpenStreetMap'
 }).addTo(map);
 
-// 🧷 Guardamos los marcadores
-const markers = {};
-
 // 📋 Lista HTML
 const lista = document.getElementById("lista");
 
 // Crear marcadores y lista
-lugares.forEach((lugar, index) => {
-  // Crear marcador
+lugares.forEach((lugar) => {
   const marker = L.marker([lugar.lat, lugar.lng])
     .addTo(map)
-    .bindPopup(<b>${lugar.nombre}</b><br>${lugar.info});
+    .bindPopup(`<b>${lugar.nombre}</b><br>${lugar.info}`);
 
-  markers[index] = marker;
-
-  // Crear elemento de lista
   const li = document.createElement("li");
   li.textContent = lugar.nombre;
 
