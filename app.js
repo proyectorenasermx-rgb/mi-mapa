@@ -29,7 +29,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 // 📌 Definir icono personalizado
-const iconoPozos = L.icon({
+const iconopozos = L.icon({
   iconUrl: 'iconopozos.png',   // ruta a tu icono
   iconSize: [40, 40],          // tamaño del icono en px
   iconAnchor: [20, 40],        // punto del icono que corresponde a la ubicación
@@ -41,7 +41,7 @@ const lista = document.getElementById("lista");
 
 lugares.forEach((lugar) => {
   // Crear un marcador con el icono personalizado
-  const marker = L.marker([lugar.lat, lugar.lng], { icon: iconoPozos })
+  const marker = L.marker([lugar.lat, lugar.lng], { icon: iconopozos })
     .addTo(map)
     .bindPopup(`<b>${lugar.nombre}</b><br>${lugar.info}`);
 
