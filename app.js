@@ -1,21 +1,29 @@
 // 📍 Datos de ubicaciones
 const lugares = [
   {
-    nombre: "Oficina Central",
-    lat: 40.4168,
-    lng: -3.7038,
-    info: "Horario: 9am - 6pm<br>Tel: 555-1234"
+    nombre: "Pozo 1",
+    lat: 19.317364,
+    lng: -98.848323,
+    info: ""Ampliación Zoquiapan, 
+jimenez cantu, 
+depositos, cañada,
+ hospitales , 
+venado
+,el gato, 
+cañada,
+ teponaztle, 
+hornos zoquiapan""
   },
   {
-    nombre: "Sucursal Norte",
-    lat: 40.4531,
-    lng: -3.6883,
+    nombre: "Pozo 2",
+    lat: 19.338547,
+    lng: -98.866603,
     info: "Horario: 8am - 4pm<br>Tel: 555-5678"
   },
   {
-    nombre: "Sucursal Sur",
-    lat: 40.3820,
-    lng: -3.7074,
+    nombre: "Pozo 3",
+    lat: 19.321736,
+    lng: -98.881706,
     info: "Horario: 10am - 7pm<br>Tel: 555-9999"
   }
 ];
