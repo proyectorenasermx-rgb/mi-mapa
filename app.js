@@ -23,23 +23,33 @@ const lugares = [
 // 🗺 Inicializa el mapa Leaflet
 const map = L.map('map').setView([40.4168, -3.7038], 12);
 
-// 🌍 Capa de OpenStreetMap
+// 🌍 Capa base OpenStreetMap
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '&copy; OpenStreetMap contributors'
 }).addTo(map);
 
-// 📋 Construye la lista de lugares
+// 📌 Definir icono personalizado
+const iconoPozos = L.icon({
+  iconUrl: 'iconopozos.png',   // ruta a tu icono
+  iconSize: [40, 40],          // tamaño del icono en px
+  iconAnchor: [20, 40],        // punto del icono que corresponde a la ubicación
+  popupAnchor: [0, -35]        // punto desde donde sale el popup
+});
+
+// 📋 Construir lista de lugares
 const lista = document.getElementById("lista");
 
-// Por cada lugar, crea marcador y elemento de lista
 lugares.forEach((lugar) => {
-  const marker = L.marker([lugar.lat, lugar.lng])
+  // Crear un marcador con el icono personalizado
+  const marker = L.marker([lugar.lat, lugar.lng], { icon: iconoPozos })
     .addTo(map)
     .bindPopup(`<b>${lugar.nombre}</b><br>${lugar.info}`);
 
+  // Crear elemento de lista
   const li = document.createElement("li");
   li.textContent = lugar.nombre;
 
+  // Evento para centrar el mapa y abrir el popup
   li.addEventListener("click", () => {
     map.setView([lugar.lat, lugar.lng], 15);
     marker.openPopup();
