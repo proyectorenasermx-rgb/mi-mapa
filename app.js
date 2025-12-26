@@ -23,27 +23,31 @@ const lugares = [
 // 🗺 Inicializar mapa
 const map = L.map('map').setView([40.4168, -3.7038], 12);
 
-// 🌍 Capa base
+// 🌍 Capa base (OpenStreetMap)
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  attribution: '© OpenStreetMap'
+  attribution: '&copy; OpenStreetMap contributors'
 }).addTo(map);
 
 // 📋 Lista HTML
 const lista = document.getElementById("lista");
 
-// Crear marcadores y lista
+// Añadir marcadores + entradas en la lista
 lugares.forEach((lugar) => {
+  // Crear el marcador
   const marker = L.marker([lugar.lat, lugar.lng])
     .addTo(map)
     .bindPopup(`<b>${lugar.nombre}</b><br>${lugar.info}`);
 
+  // Crear item en la lista
   const li = document.createElement("li");
   li.textContent = lugar.nombre;
 
+  // Al hacer click en la lista, centramos el mapa y abrimos popup
   li.addEventListener("click", () => {
     map.setView([lugar.lat, lugar.lng], 15);
     marker.openPopup();
   });
 
+  // Añadir a la lista
   lista.appendChild(li);
 });
