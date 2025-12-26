@@ -21,7 +21,7 @@ const lugares = [
 ];
 
 // 🗺 Inicializa el mapa Leaflet
-const map = L.map('map').setView([40.4168, -3.7038], 12);
+const map = L.map('map').setView([19.31246, -98.88392], 12);
 
 // 🌍 Capa base OpenStreetMap
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
