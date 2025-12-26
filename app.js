@@ -1,4 +1,4 @@
-// 📍 Tus puntos georreferenciados
+// 📍 Datos de ubicaciones
 const lugares = [
   {
     nombre: "Oficina Central",
@@ -20,34 +20,30 @@ const lugares = [
   }
 ];
 
-// 🗺 Inicializar mapa
+// 🗺 Inicializa el mapa Leaflet
 const map = L.map('map').setView([40.4168, -3.7038], 12);
 
-// 🌍 Capa base (OpenStreetMap)
+// 🌍 Capa de OpenStreetMap
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '&copy; OpenStreetMap contributors'
 }).addTo(map);
 
-// 📋 Lista HTML
+// 📋 Construye la lista de lugares
 const lista = document.getElementById("lista");
 
-// Añadir marcadores + entradas en la lista
+// Por cada lugar, crea marcador y elemento de lista
 lugares.forEach((lugar) => {
-  // Crear el marcador
   const marker = L.marker([lugar.lat, lugar.lng])
     .addTo(map)
     .bindPopup(`<b>${lugar.nombre}</b><br>${lugar.info}`);
 
-  // Crear item en la lista
   const li = document.createElement("li");
   li.textContent = lugar.nombre;
 
-  // Al hacer click en la lista, centramos el mapa y abrimos popup
   li.addEventListener("click", () => {
     map.setView([lugar.lat, lugar.lng], 15);
     marker.openPopup();
   });
 
-  // Añadir a la lista
   lista.appendChild(li);
 });
